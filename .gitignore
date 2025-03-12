@@ -1,0 +1,13 @@
+# ローカル専用の設定やキャッシュ
+.zsh_history
+.zcompdump*
+.DS_Store
+.cache
+.tmp
+*.swp
+*.elc
+
+# Doom Emacs の一部は除外
+.doom.d/.local
+.doom.d/.cache
+.doom.d/.emacs.d

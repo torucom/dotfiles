@@ -1,0 +1,93 @@
+echo $HISTFILE
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d\
+~/.emacs.d/bin/doom install
+emacs .doom.d/init.el
+find ~/.emacs.d/bin -name doom
+ls -l ~/.emacs.d/bin/doom
+echo $PATH
+echo 'export PATH="$HOME/.emacs.d/bin:$PATH"' >> ~/.zshrc
+doom sync && doom reload
+emacs .doom.d/config.el
+cd .doom.d
+touch .gitignore
+emacs .gitignore
+git remote add origin https://github.com/torucom/doomEmacs
+git branch -M main
+cd ~/.zsh.d
+ln -s ~/.zsh.d/.zshrc ~/.zshrc
+cd
+mkdir -p ~/dotfiles
+cd ~/dotfiles
+git init
+for file in .zshenv .zshrc .zsh.d .doom.d; do mv ~/$file ~/dotfiles/ && ln -s ~/dotfiles/$file ~/$file; done
+pwd
+echo ".zsh.d/.zcompdump*" >> ~/dotfiles/.gitignore
+echo ".zsh_history" >> ~/dotfiles/.gitignore
+echo ".DS_Store" >> ~/dotfiles/.gitignore
+echo ".emacs.d/.local/" >> ~/dotfiles/.gitignore
+echo ".emacs.d/.cache/" >> ~/dotfiles/.gitignore
+echo ".emacs.d/.recentf" >> ~/dotfiles/.gitignore
+git add .
+brew upgrade
+sudo brew uninstall blackhole-2ch
+sudo launchctl stop com.apple.audio.coreaudiod
+sudo launchctl start com.apple.audio.coreaudiod
+csrutil disable
+sodo brew uninstall blackhole-2ch
+brew list
+brew uninstall blackhole-2ch
+brew cleanup
+emacs --veasion
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs\
+~/.config/emacs/bin/doom install
+emacs
+doom doctor
+~/.config/emacs/bin/doom sync
+brew install ripgrep
+brew install fd
+brew install coreutils
+source ~/.zshrc
+brew install shellcheck
+brew install fontconfig
+brew uninstall emacs
+brew install emacs-plus@30 --with-native-comp
+export DOOMDIR="$HOME/.doom.d"
+brew tap railwaycat/emacsmacport
+brew install emacs-mac
+doom sync
+sed -n '130,140p' ~/.zshrc
+ls -l ~/.zshrc
+readlink ~/.zshrc
+cd .zsh.d
+brew install tree
+tree
+tree -a
+autoload -Uz compinit
+rm -f ~/.zcompdump*
+compinit
+exec zsh
+: 1741747009:0;brew doctor
+: 1741747068:0;brew untap homebrew/cask-fonts
+: 1741747177:0;brew link emacs-mac
+: 1741747186:0;brew link --overwrite emacs-mac
+: 1741747196:0;brew link emacs-mac
+: 1741747269:0;node -v
+: 1741748147:0;reload_zsh
+: 1741748178:0;brew doctor
+: 1741748240:0;mkdir -p ~/dotfiles
+: 1741748244:0;cd ~/dotfiles
+: 1741748249:0;git init
+: 1741748261:0;cp -r ~/.zshrc ~/.zshenv ~/.zsh.d ~/.config/emacs ~/.doom.d ~/dotfiles/
+: 1741748498:0;source ~/.zshrc
+: 1741748508:0;echo $FZF_DEFAULT_COMMAND
+: 1741748539:0;echo $ZDOTDIR
+: 1741748550:0;cat ~/.zsh.d/plugins.zsh
+: 1741748599:0;command -v bat
+: 1741748617:0;alias | grep 'bat'
+: 1741748627:0;unalias cat
+: 1741748628:0;alias | grep 'bat'
+: 1741748635:0;cat ~/.zsh.d/plugins.zsh
+: 1741748691:0;brew install ripgrep
+: 1741748708:0;brew install zoxide
+: 1741748717:0;source ~/.zsh.d/plugins.zsh
+: 1741748910:0;git remote add origin https://github.com/torucom/dotfiles
