@@ -4,7 +4,6 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d\
 emacs .doom.d/init.el
 find ~/.emacs.d/bin -name doom
 ls -l ~/.emacs.d/bin/doom
-echo $PATH
 echo 'export PATH="$HOME/.emacs.d/bin:$PATH"' >> ~/.zshrc
 doom sync && doom reload
 emacs .doom.d/config.el
@@ -12,22 +11,15 @@ cd .doom.d
 touch .gitignore
 emacs .gitignore
 git remote add origin https://github.com/torucom/doomEmacs
-git branch -M main
 cd ~/.zsh.d
 ln -s ~/.zsh.d/.zshrc ~/.zshrc
-cd
-mkdir -p ~/dotfiles
-cd ~/dotfiles
-git init
 for file in .zshenv .zshrc .zsh.d .doom.d; do mv ~/$file ~/dotfiles/ && ln -s ~/dotfiles/$file ~/$file; done
-pwd
 echo ".zsh.d/.zcompdump*" >> ~/dotfiles/.gitignore
 echo ".zsh_history" >> ~/dotfiles/.gitignore
 echo ".DS_Store" >> ~/dotfiles/.gitignore
 echo ".emacs.d/.local/" >> ~/dotfiles/.gitignore
 echo ".emacs.d/.cache/" >> ~/dotfiles/.gitignore
 echo ".emacs.d/.recentf" >> ~/dotfiles/.gitignore
-git add .
 brew upgrade
 sudo brew uninstall blackhole-2ch
 sudo launchctl stop com.apple.audio.coreaudiod
@@ -38,23 +30,14 @@ brew list
 brew uninstall blackhole-2ch
 brew cleanup
 emacs --veasion
-git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs\
-~/.config/emacs/bin/doom install
-emacs
-doom doctor
-~/.config/emacs/bin/doom sync
-brew install ripgrep
 brew install fd
 brew install coreutils
-source ~/.zshrc
 brew install shellcheck
 brew install fontconfig
 brew uninstall emacs
-brew install emacs-plus@30 --with-native-comp
 export DOOMDIR="$HOME/.doom.d"
 brew tap railwaycat/emacsmacport
 brew install emacs-mac
-doom sync
 sed -n '130,140p' ~/.zshrc
 ls -l ~/.zshrc
 readlink ~/.zshrc
@@ -66,32 +49,26 @@ autoload -Uz compinit
 rm -f ~/.zcompdump*
 compinit
 exec zsh
-: 1741747009:0;brew doctor
-: 1741747068:0;brew untap homebrew/cask-fonts
-: 1741747177:0;brew link emacs-mac
-: 1741747186:0;brew link --overwrite emacs-mac
-: 1741747196:0;brew link emacs-mac
-: 1741747269:0;node -v
-: 1741748147:0;reload_zsh
-: 1741748178:0;brew doctor
-: 1741748240:0;mkdir -p ~/dotfiles
-: 1741748244:0;cd ~/dotfiles
-: 1741748249:0;git init
-: 1741748261:0;cp -r ~/.zshrc ~/.zshenv ~/.zsh.d ~/.config/emacs ~/.doom.d ~/dotfiles/
-: 1741748498:0;source ~/.zshrc
-: 1741748508:0;echo $FZF_DEFAULT_COMMAND
-: 1741748539:0;echo $ZDOTDIR
-: 1741748550:0;cat ~/.zsh.d/plugins.zsh
-: 1741748599:0;command -v bat
-: 1741748617:0;alias | grep 'bat'
-: 1741748627:0;unalias cat
-: 1741748628:0;alias | grep 'bat'
-: 1741748635:0;cat ~/.zsh.d/plugins.zsh
-: 1741748691:0;brew install ripgrep
-: 1741748708:0;brew install zoxide
-: 1741748717:0;source ~/.zsh.d/plugins.zsh
-: 1741748910:0;git remote add origin https://github.com/torucom/dotfiles
-: 1741749147:0;cat <<EOF > ~/dotfiles/install.sh\
+brew untap homebrew/cask-fonts
+brew link --overwrite emacs-mac
+brew link emacs-mac
+node -v
+reload_zsh
+brew doctor
+mkdir -p ~/dotfiles
+cd ~/dotfiles
+cp -r ~/.zshrc ~/.zshenv ~/.zsh.d ~/.config/emacs ~/.doom.d ~/dotfiles/
+echo $FZF_DEFAULT_COMMAND
+echo $ZDOTDIR
+command -v bat
+unalias cat
+alias | grep 'bat'
+cat ~/.zsh.d/plugins.zsh
+brew install ripgrep
+brew install zoxide
+source ~/.zsh.d/plugins.zsh
+git remote add origin https://github.com/torucom/dotfiles
+cat <<EOF > ~/dotfiles/install.sh\
 #!/bin/bash\
 set -e\
 \
@@ -104,6 +81,115 @@ ln -sf ~/dotfiles/.doom.d ~/.doom.d\
 \
 echo "‚ÉºÉ• „Çª„É£É£„É£É®„ÇÉÇ„É£É£„É£É∑ÂÆÉ¨‰∫É¶ÔºÅ"\
 EOF
-: 1741749202:1;chmod +x ~/dotfiles/install.sh
-: 1741749208:0;~/dotfiles/install.sh
-: 1741749625:0;git rm --cached .zshenv
+chmod +x ~/dotfiles/install.sh
+~/dotfiles/install.sh
+git rm --cached .zshenv
+echo $DOOMDIR
+~/.config/emacs/bin/doom doctor
+rm -rf ~/.emacs.d ~/.doom.d ~/.config/emacs
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+~/.config/emacs/bin/doom install
+~/.config/emacs/bin/doom sync
+source ~/.zshrc
+dot
+dotfiles/install.sh
+doom sync -u
+command -v doom
+~/.config/emacs/bin/doom clean
+brew reinstall emacs-plus@30 --with-native-comp
+brew info emacs-plus@30
+brew tap | grep railwaycat
+brew search emacs
+brew install railwaycat/emacsmacport/emacs-mac
+emacs --batch --eval "(print native-comp-available)"
+t
+emacs --batch --eval "(print system-configuration-options)"
+brew uninstall emacs-mac
+brew tap d12frosted/emacs-plus
+brew install emacs-plus@30 --with-native-comp
+brew tap
+brew search emacs-plus
+brew install emacs-plus@30
+emacs --batch --eval "(print (featurep 'native-compile))"
+cd /Users/torucom/Desktop/ÂÉ∞É≠Áß∞ÊÉº™Ë®≠ÂÆÉ∫„É£Éµ„Ç©„É£´„Çø„ÇÉπ\ 2 
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs\
+~/.config/emacs/bin/doom install
+cd
+doom sync && doom restart
+touch ~/Documents/org/EmacsCheatSheet.org
+emacs Documents/org/EmacsCheatSheet.org
+ls -a
+mkdir -p ~/kaneru.jp
+gpl https://github.com/torucom/html-boilerplate
+gpl git@github.com:torucom/html-boilerplate.git
+cd ../
+cd localhost/
+cd ~/localhost/
+git clone https://github.com/torucom/html-boilerplate
+mv html-boilerplate/ kaneru.jp
+rm -rf .git 
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+cd kaneru.jp
+ls
+wpc
+cwp
+cpw
+pwd
+cd localhost/kaneru.jp
+emac
+emacs
+exit
+brew install php composer
+brew install shfmt
+npm install -g stylelint js-beautify
+echo $TERM
+doom clean
+ls -l ~/.config/emacs/bin/doom
+echo $PATH
+doom reload
+npm install
+npm install express cors
+npm run dev
+doom build
+cd ~/localhost/kaneru.jp
+npm ls
+emacs index.html
+doom doctor
+jq . package.json
+doom sync
+: 1741772431:0;cd ~/localhost/kaneru.jp
+: 1741772434:0;emacs index.html
+: 1741772514:0;doom sync
+: 1741772525:0;emacs index.html
+: 1741772865:0;doom sync
+: 1741772876:0;emacs index.html
+: 1741773137:0;npm run sass
+: 1741777118:0;tree
+: 1741777203:0;tree | findstr /R /C:"^‚É¥Éº" /C:"^‚É¥Ç  ‚É¥Éº" /C:"^‚É¥Ç  ‚É¥É¥" /C:"^‚É¥É¥"
+: 1741777245:0;tree -L 2
+: 1741777347:0;tree -L 3
+: 1741777515:0;rm -rf counter.js
+: 1741777558:0;rm -rf src/javascript.svg
+: 1741777596:0;rm -rf src/css/style.css
+: 1741777611:0;rm -rf package.json
+: 1741777932:0;npm install --save-dev typescript @types/node
+: 1741778035:0;npx tsc --init
+: 1741778453:0;mv src/js/main.js src/js/main.ts
+: 1741778515:0;npm run dev
+: 1741779745:0;npm run sass
+: 1741779770:0;npm run dev
+: 1741780012:0;rm -rf node_modules/.vite
+: 1741780020:0;rm -rf node_modules/.cache
+: 1741780024:0;npm run dev
+: 1741780262:0;rm -rf node_modules package-lock.json
+: 1741780267:0;npm cache clean --force 
+: 1741780271:0;npm install
+: 1741780287:0;npm run dev
+: 1741780680:0;npm install concurrently --save-dev
+: 1741780726:0;npm run dev
+: 1741780924:0;emacs index.html
+: 1741781745:0;git remote add origin https://github.com/torucom/kaneru
+: 1741781752:0;git remote -v
