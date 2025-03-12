@@ -1,4 +1,5 @@
 # ローカル専用の設定やキャッシュ
+.zshenv
 .zsh_history
 .zcompdump*
 .DS_Store

@@ -91,3 +91,19 @@ exec zsh
 : 1741748708:0;brew install zoxide
 : 1741748717:0;source ~/.zsh.d/plugins.zsh
 : 1741748910:0;git remote add origin https://github.com/torucom/dotfiles
+: 1741749147:0;cat <<EOF > ~/dotfiles/install.sh\
+#!/bin/bash\
+set -e\
+\
+echo "ÉøÉ¥É∑ „Ç∑„É£≥„É£Éº„É£™„É£É£„ÇØ„É£™„É£≥„ÇØ„ÇÉ≤‰ΩÉºÊÉ®É∞‰∏≠..."\
+\
+ln -sf ~/dotfiles/.zshenv ~/.zshenv\
+ln -sf ~/dotfiles/.zshrc ~/.zshrc\
+ln -sf ~/dotfiles/.zsh.d ~/.zsh.d\
+ln -sf ~/dotfiles/.doom.d ~/.doom.d\
+\
+echo "‚ÉºÉ• „Çª„É£É£„É£É®„ÇÉÇ„É£É£„É£É∑ÂÆÉ¨‰∫É¶ÔºÅ"\
+EOF
+: 1741749202:1;chmod +x ~/dotfiles/install.sh
+: 1741749208:0;~/dotfiles/install.sh
+: 1741749625:0;git rm --cached .zshenv
