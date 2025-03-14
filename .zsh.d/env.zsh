@@ -2,7 +2,18 @@
 # 環境変数 & パス設定
 # ============================
 export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/Users/torucom/.nvm/versions/node/v22.12.0/bin:$PATH"
+
+# Node.js（nvm）の設定
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion"
+
+# nvm のロードが終わってから Node.js の PATH を設定
+if command -v nvm >/dev/null 2>&1; then
+    export PATH="$HOME/.nvm/versions/node/$(nvm version)/bin:$PATH"
+fi
+
+export PATH="./node_modules/.bin:$PATH"
 export PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
@@ -17,8 +28,3 @@ if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
 else
     alias emacs="open -a Emacs"  # それ以外（デスクトップなど）は GUI 版
 fi
-
-# Node.js（nvm）の設定
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion"

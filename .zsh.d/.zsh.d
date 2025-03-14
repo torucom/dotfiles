@@ -1,1 +1,0 @@
-/Users/torucom/dotfiles/.zsh.d

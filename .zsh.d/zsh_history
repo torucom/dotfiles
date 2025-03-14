@@ -5,7 +5,6 @@ emacs .doom.d/init.el
 find ~/.emacs.d/bin -name doom
 ls -l ~/.emacs.d/bin/doom
 echo 'export PATH="$HOME/.emacs.d/bin:$PATH"' >> ~/.zshrc
-doom sync && doom reload
 emacs .doom.d/config.el
 cd .doom.d
 touch .gitignore
@@ -30,11 +29,8 @@ brew list
 brew uninstall blackhole-2ch
 brew cleanup
 emacs --veasion
-brew install fd
-brew install coreutils
 brew install shellcheck
 brew install fontconfig
-brew uninstall emacs
 export DOOMDIR="$HOME/.doom.d"
 brew tap railwaycat/emacsmacport
 brew install emacs-mac
@@ -43,7 +39,6 @@ ls -l ~/.zshrc
 readlink ~/.zshrc
 cd .zsh.d
 brew install tree
-tree
 tree -a
 autoload -Uz compinit
 rm -f ~/.zcompdump*
@@ -52,7 +47,6 @@ exec zsh
 brew untap homebrew/cask-fonts
 brew link --overwrite emacs-mac
 brew link emacs-mac
-node -v
 reload_zsh
 brew doctor
 mkdir -p ~/dotfiles
@@ -64,7 +58,6 @@ command -v bat
 unalias cat
 alias | grep 'bat'
 cat ~/.zsh.d/plugins.zsh
-brew install ripgrep
 brew install zoxide
 source ~/.zsh.d/plugins.zsh
 git remote add origin https://github.com/torucom/dotfiles
@@ -90,7 +83,6 @@ rm -rf ~/.emacs.d ~/.doom.d ~/.config/emacs
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
 ~/.config/emacs/bin/doom install
 ~/.config/emacs/bin/doom sync
-source ~/.zshrc
 dot
 dotfiles/install.sh
 doom sync -u
@@ -105,7 +97,6 @@ emacs --batch --eval "(print native-comp-available)"
 t
 emacs --batch --eval "(print system-configuration-options)"
 brew uninstall emacs-mac
-brew tap d12frosted/emacs-plus
 brew install emacs-plus@30 --with-native-comp
 brew tap
 brew search emacs-plus
@@ -133,63 +124,198 @@ git add .
 git commit -m "Initial commit"
 git branch -M main
 cd kaneru.jp
-ls
 wpc
 cwp
 cpw
 pwd
 cd localhost/kaneru.jp
 emac
-emacs
 exit
 brew install php composer
 brew install shfmt
-npm install -g stylelint js-beautify
 echo $TERM
 doom clean
 ls -l ~/.config/emacs/bin/doom
 echo $PATH
 doom reload
-npm install
 npm install express cors
-npm run dev
-doom build
-cd ~/localhost/kaneru.jp
 npm ls
-emacs index.html
-doom doctor
 jq . package.json
+tree
+tree | findstr /R /C:"^âƒ´ƒ¼" /C:"^âƒ´‚  âƒ´ƒ¼" /C:"^âƒ´‚  âƒ´ƒ´" /C:"^âƒ´ƒ´"
+tree -L 2
+tree -L 3
+rm -rf counter.js
+rm -rf src/javascript.svg
+rm -rf src/css/style.css
+rm -rf package.json
+npm install --save-dev typescript @types/node
+npx tsc --init
+mv src/js/main.js src/js/main.ts
+npm run sass
+rm -rf node_modules/.vite
+rm -rf node_modules/.cache
+rm -rf node_modules package-lock.json
+npm cache clean --force 
+npm install
+npm install concurrently --save-dev
+git remote add origin https://github.com/torucom/kaneru
+git remote -v
+ls
+dotfiles/install.sh 
+ps aux | grep node
+ps aux | grep npm
+npm list -g --depth=0
+curl -I https://registry.npmjs.org/
+chmod +x $(which typescript-language-server)
+ls -l $(which typescript-language-server)
+npm uninstall -g typescript-language-server typescript
+npm cache clean --force
+npm install -g typescript-language-server typescript
+echo '{}' | typescript-language-server --stdio
+which nod
+which node
+export NODE_PATH=$(npm root -g)
+node /Users/torucom/.nvm/versions/node/v22.12.0/lib/node_modules/typescript-language-server/lib/cli.mjs --stdio
+which tsc
+typescript-language-server --stdio --tsserver-path=$(which tsc)
+node /Users/torucom/.nvm/versions/node/v22.12.0/lib/node_modules/typescript-language-server/lib/cli.mjs --stdio --tsserver-path=$(which tsc)
+DEBUG="typescript-language-server" typescript-language-server --stdio
+M-x lsp-describe-session
+nvm install v22.14.0
+nvm use v22.14.0
+nvm alias default v22.14.0
+npm uninstall -g typescript typescript-language-server
+npm install -g typescript typescript-language-server
+typescript-language-server --version
+typescript-language-server --stdio --log-level=4
+npx typescript-language-server --stdio --log-level=4
+killall node
+typescript-language-server --help
+echo -e 'Content-Length: 85\r\n\r\n{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"capabilities":{}}}' | typescript-language-server --stdio
+npm doctor
+node $(npm root -g)/typescript-language-server/lib/cli.mjs --stdio --log-level=4
+npm install -g typescript-language-server@4.3.3
+tsc --version
+node $(npm root -g)/typescript/lib/tsserver.js --logVerbosity verbose
+lsof -i -P | grep typescript-language-server
+typescript-language-server --stdio 2>&1 | tee lsp-debug.log
+strace -f -e trace=network typescript-language-server --stdio
+sudo dtruss -fn typescript-language-server --stdio
+typescript-language-server --stdio --log-level=4 --tsserver-path=$(which tsc)
+node $(npm root -g)/typescript-language-server/lib/cli.mjs --stdio --log-level=4 --tsserver-path=$(which tsc)
+npm install -g vscode-jsonrpc vscode-languageserver protocol
+ls -l $(npm root -g)/typescript-language-server/node_modules
+npm install -g npm
+DEBUG="*" typescript-language-server --stdio
+node inspect $(npm root -g)/typescript-language-server/lib/cli.mjs --stdio
+echo -e "Content-Length: 85\r\n\r\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"capabilities\":{}}}" | typescript-language-server --stdio
+lsof -p $(pgrep -f typescript-language-server)
+node --inspect-brk $(npm root -g)/typescript-language-server/lib/cli.mjs --stdio
+node --inspect-brk --trace-warnings $(npm root -g)/typescript-language-server/lib/cli.mjs --stdio
+npm run test
+npm install --save-dev concurrently
+npm list --depth=0 | grep concurrently
+npm install -g concurrently
+ls node_modules/.bin | grep concurrently
+echo $PATH | tr ':' '\n' | grep node_modules/.bin
+source ~/env.zsh
+source ~/.zshrc
+echo $PATH | tr ':' '\n' | grep node_modules
+nvm version
+npm -v
+npm run dev
+which typescript-language-server
+npx which typescript-language-server
+npx typescript-language-server --help
+which tsserver
+npm list -g typescript
+tsserver
+nvm install 20
+nvm use 20
+node -v
+npm uninstall -g typescript-language-server
+npm install -g typescript-language-server
+env | grep TS
+env | grep NODE
+unset NODE_OPTIONS
+unset TS_SERVER
+npx typescript-language-server --stdio --tsserver-path $(which tsserver)
+npm install -g typescript-language-server@3.3.1
+tsserver --help
+npx typescript-language-server --stdio &> lsp.log &\
+tail -f lsp.log
+npx typescript-language-server --stdio --log-level 4 --tsserver-log-file tsserver.log
+npx typescript-language-server --stdio=false --node-ipc
+$(which typescript-language-server) --stdio
+TSS_LOG=-level verbose tsserver
+TS_TRACE=1 tsserver
+/Users/torucom/.nvm/versions/node/v20.18.3/bin/typescript-language-server --stdio
+npx typescript-language-server --stdio --log-level 4
+ps aux | grep typescript-language-server
+npx typescript-language-server --stdio
+echo -e 'Content-Length: 44\n\n{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' | nc -U /tmp/tsserver
+tsserver --logVerbosity verbose --traceResolution
+npx typescript-language-server --socket=2089
+DEBUG="*" npx typescript-language-server --stdio
+typescript-language-server --stdio
+cd ~/localhost/kaneru.jp
+doom sync && doom reload
+emacs src/scss/main.scss
+emacs --debug-init
+ls -al ~/.doom.d/snippets/
+mkdir -p ~/.doom.d/snippets/
+brew install ripgrep
+which rg
+rg --version
+brew tap d12frosted/emacs-plus
+brew install emacs-plus@29 --with-native-comp
+emacs version
+emacs -help
+brew install fd
+brew install coreutils
+brew install shfmt shellcheck
+npm install -g stylelint js-beautify
+brew install markdown
+which emacs
+brew unlink emacs
+brew link --overwrite emacs-plus@29
+rm -rf ~/.emacs.d/.local/straight/build-*
+doom doctor
+ls ~/.emacs.d/.local/straight/build-29.4/general/general-autoloads.el 
+rm -rf ~/.emacs.d/.local/straight/build-29.4/general
+ls ~/.emacs.d/.local/straight/build-*/general.el
+/Users/torucom/.emacs.d/.local/straight/build-29.4/general/general-autoloads.el
+ls -d ~/.emacs.d/.local/straight/build-*
+find ~/.emacs.d/.local/straight/build-29.4 -name "general.el"
+ls -l /Users/torucom/.emacs.d/.local/straight/repos/general.el/general.el
+ls ~/.emacs.d/.local/straight/build-30.1/general/general.el
+brew unlink emacs-plus@29
+brew link --overwrite emacs-plus@30
+brew link --overwrite emacs 30.1
+brew uninstall --cask emacs
+brew install emacs
+brew list --versions | grep emacs
+brew link --overwrite emacs
+brew uninstall emacs
+brew install --cask emacs
+ln -s /Applications/Emacs.app/Contents/MacOS/Emacs /opt/homebrew/bin/emacs
+emacs --version
 doom sync
-: 1741772431:0;cd ~/localhost/kaneru.jp
-: 1741772434:0;emacs index.html
-: 1741772514:0;doom sync
-: 1741772525:0;emacs index.html
-: 1741772865:0;doom sync
-: 1741772876:0;emacs index.html
-: 1741773137:0;npm run sass
-: 1741777118:0;tree
-: 1741777203:0;tree | findstr /R /C:"^âƒ´ƒ¼" /C:"^âƒ´‚  âƒ´ƒ¼" /C:"^âƒ´‚  âƒ´ƒ´" /C:"^âƒ´ƒ´"
-: 1741777245:0;tree -L 2
-: 1741777347:0;tree -L 3
-: 1741777515:0;rm -rf counter.js
-: 1741777558:0;rm -rf src/javascript.svg
-: 1741777596:0;rm -rf src/css/style.css
-: 1741777611:0;rm -rf package.json
-: 1741777932:0;npm install --save-dev typescript @types/node
-: 1741778035:0;npx tsc --init
-: 1741778453:0;mv src/js/main.js src/js/main.ts
-: 1741778515:0;npm run dev
-: 1741779745:0;npm run sass
-: 1741779770:0;npm run dev
-: 1741780012:0;rm -rf node_modules/.vite
-: 1741780020:0;rm -rf node_modules/.cache
-: 1741780024:0;npm run dev
-: 1741780262:0;rm -rf node_modules package-lock.json
-: 1741780267:0;npm cache clean --force 
-: 1741780271:0;npm install
-: 1741780287:0;npm run dev
-: 1741780680:0;npm install concurrently --save-dev
-: 1741780726:0;npm run dev
-: 1741780924:0;emacs index.html
-: 1741781745:0;git remote add origin https://github.com/torucom/kaneru
-: 1741781752:0;git remote -v
+doom build
+emacs index.html
+ipconfig
+command -v nvm
+ls -ld ~/.nvm
+which nvm
+nvm --version
+echo $PATH | tr ':' '\n' | grep nvm
+emacs
+: 1741944081:0;cd ~/localhost/kaneru.jp
+: 1741944085:0;tree -L 3
+: 1741944100:0;tree -L 2
+: 1741945206:0;emacs
+: 1741946795:0;cd ~/localhost/kaneru.jp
+: 1741946797:0;npm run dev
+: 1741946816:0;emacs
+: 1741947427:0;npm run dev
